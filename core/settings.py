@@ -22,10 +22,9 @@ ACCESS_EXPIRES_IN_MIN  = 10
 REFRESH_EXPIRES_IN_MIN = 50
 
 
-
-
-
-
+USERNAME_MONGO_DB = config('USERNAME_MONGO_DB')
+PASSWORD_MONGO_DB = config('PASSWORD_MONGO_DB')
+DATABASE_URL_MONGO_DB = config('DATABASE_URL_MONGO_DB')
 
 
 class Settings(BaseModel):
@@ -38,7 +37,7 @@ class Settings(BaseModel):
     ACCESS_EXPIRES_IN_MIN: int = ACCESS_EXPIRES_IN_MIN
     REFRESH_EXPIRES_IN_MIN: int = REFRESH_EXPIRES_IN_MIN
 
-    DATABASE_URL: str = config('DATABASE_URL_PROD') if not DEBUG else config('DATABASE_URL_DEV')
+    DATABASE_URL: str = f'mongodb+srv://{USERNAME_MONGO_DB}:{PASSWORD_MONGO_DB}@{DATABASE_URL_MONGO_DB}/?retryWrites=true&w=majority'
 
 
 settings = Settings()

@@ -1,9 +1,11 @@
 import pymongo
+from core.settings import settings
 
-USERNAME = 'admin'
-PASSWORD = 'WVTIRUeAqtOXpAM3'
-DATABASE_URL = 'cluster0.niuem.mongodb.net'
 
-client = pymongo.MongoClient(f'mongodb+srv://{USERNAME}:{PASSWORD}@{DATABASE_URL}/?retryWrites=true&w=majority')
 
+client = pymongo.MongoClient(settings.DATABASE_URL)
+
+
+
+#database 'fastapi_mongo'
 db = client['fastapi_mongo']

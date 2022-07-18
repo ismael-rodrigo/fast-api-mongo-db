@@ -8,8 +8,7 @@ class User(BaseModel):
     class Config:
         orm_mode = True
 
+
 class ShowUser(BaseModel):
     username:str
     age:int
-    class Config:
-        orm_mode = True
